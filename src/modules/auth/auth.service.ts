@@ -3,20 +3,25 @@ import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/user.service';
 import { createSHA256 } from 'src/utils/hash';
 import { LoginUserDto } from '../users/dto/user.login.dto';
+import { Response } from 'express';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService
-  ) {}
+  ) { }
 
-  public async login(loginUserDto: LoginUserDto) {
+  public async login(loginUserDto: LoginUserDto, res: Response) {
     const user = await this.usersService.findOne(loginUserDto.username);
-    const token = this.jwtService.sign( { username: user?.username });
+    const token = this.jwtService.sign({ username: user?.username });
+    res.cookie('accessToken', token, {
+      httpOnly: true,
+      maxAge: 24 * 24 * 60 * 60 * 1000,
+      sameSite: 'strict',
+    });
     return {
       username: user?.username,
-      accessToken: token,
     };
   }
 

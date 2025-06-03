@@ -6,12 +6,14 @@ import {
   UsePipes,
   ValidationPipe,
   HttpCode,
+  Res,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '../users/dto/user.login.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CreateUserDto } from '../users/dto/user.create.dto';
 import { UsersService } from '../users/user.service';
+import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -22,15 +24,21 @@ export class AuthController {
 
   @Post('register')
   @UsePipes(new ValidationPipe())
-  public async register(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  public async register(
+    @Body() createUserDto: CreateUserDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    return this.usersService.create(createUserDto, res);
   }
 
   @Post('login')
   @HttpCode(200)
   @UseGuards(LocalAuthGuard)
   @UsePipes(new ValidationPipe())
-  public async login(@Body() loginUserDto: LoginUserDto) {
-    return this.authService.login(loginUserDto);
+  public async login(
+    @Body() loginUserDto: LoginUserDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    return this.authService.login(loginUserDto, res);
   }
 }

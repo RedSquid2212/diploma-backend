@@ -11,6 +11,7 @@ import { themesMap } from 'src/coursesData/themesData';
 import { Theme } from '../courses/schemas/theme.schema';
 import { Task } from '../courses/schemas/task.schema';
 import { taskMap } from 'src/coursesData/tasksData';
+import { Response } from 'express';
 
 @Injectable()
 export class UsersService {
@@ -30,7 +31,7 @@ export class UsersService {
     return await this.userModel.findOne({ username }).exec();
   }
 
-  async create(userDto: CreateUserDto) {
+  async create(userDto: CreateUserDto, res: Response) {
     const { username, password } = userDto;
 
     const userInDb = await this.userModel.findOne({ username }).exec();
@@ -81,6 +82,12 @@ export class UsersService {
       }
     }
 
-    return { user, token };
+    res.cookie('accessToken', token, {
+      httpOnly: true,
+      maxAge: 24 * 24 * 60 * 60 * 1000,
+      sameSite: 'strict',
+    });
+    
+    return { user };
   }
 }
