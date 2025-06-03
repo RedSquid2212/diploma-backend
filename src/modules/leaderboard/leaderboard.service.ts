@@ -12,16 +12,24 @@ export class LeaderboardService {
   async getMainLeaderboard() {
     return this.userModel
       .find()
-      .sort({ xp: -1 })
+      .sort({ 
+        xp: -1,
+        xpUpdatedAt: 1
+      })
       .limit(25)
-      .select('username xp');
+      .select('username xp xpUpdatedAt')
+      .exec();
   }
 
   async getGameLeaderboard() {
     return this.userModel
       .find()
-      .sort({ gameXp: -1 })
+      .sort({ 
+        gameXp: -1,
+        gameXpUpdatedAt: 1 
+      })
       .limit(25)
-      .select('username gameXp');
+      .select('username gameXp gameXpUpdatedAt')
+      .exec();
   }
 }
