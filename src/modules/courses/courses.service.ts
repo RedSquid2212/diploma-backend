@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Course } from './schemas/course.schema';
-import { UpdateThemeProgressDto } from './dto/updateThemeProgressDto';
+import { UpdateThemeProgressDto } from './dto/updateThemeProgress.dto';
 import { User } from '../users/user.schema';
 import { Theme } from './schemas/theme.schema';
 import { Task } from './schemas/task.schema';

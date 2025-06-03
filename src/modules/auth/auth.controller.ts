@@ -14,6 +14,7 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CreateUserDto } from '../users/dto/user.create.dto';
 import { UsersService } from '../users/user.service';
 import { Response } from 'express';
+import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
@@ -22,6 +23,9 @@ export class AuthController {
     private readonly usersService: UsersService,
   ) { }
 
+  @ApiOperation({ summary: 'Register user' })
+  @ApiResponse({ status: 200, description: 'Creates new user' })
+  @ApiResponse({ status: 400, description: 'Bad request' })
   @Post('register')
   @UsePipes(new ValidationPipe())
   public async register(
@@ -31,6 +35,9 @@ export class AuthController {
     return this.usersService.create(createUserDto, res);
   }
 
+  @ApiOperation({ summary: 'Login user' })
+  @ApiResponse({ status: 200, description: 'Login user in system' })
+  @ApiResponse({ status: 400, description: 'Bad request' })
   @Post('login')
   @HttpCode(200)
   @UseGuards(LocalAuthGuard)
