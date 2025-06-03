@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { UpdateThemeProgressDto } from './dto/updateThemeProgressDto';
 
 @Controller('progress')
 export class CoursesController {
@@ -27,13 +28,11 @@ export class CoursesController {
   @UsePipes(new ValidationPipe())
   updateThemeProgress(
     @Param('userId') userId: string,
-    @Body() updateProgressDto: { courseId: string; themeId: string; progress: number }
+    @Body() updateProgressDto: UpdateThemeProgressDto
   ) {
     return this.coursesService.updateThemeProgress(
       userId,
-      updateProgressDto.courseId,
-      updateProgressDto.themeId,
-      updateProgressDto.progress
+      updateProgressDto,
     );
   }
 }
