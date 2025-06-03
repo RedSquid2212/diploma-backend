@@ -85,9 +85,11 @@ export class UsersService {
     res.cookie('accessToken', token, {
       httpOnly: true,
       maxAge: 24 * 24 * 60 * 60 * 1000,
-      sameSite: 'strict',
+      secure: false,
+      domain: 'localhost',
+      sameSite: 'lax',
     });
-    
+
     return { user };
   }
 }

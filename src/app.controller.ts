@@ -5,7 +5,7 @@ import { UsersService } from './modules/users/user.service';
 export class AppController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Get('test-db')
+  @Get()
   getHello() {
     return 'Hello';
   }
