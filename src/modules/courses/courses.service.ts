@@ -65,8 +65,36 @@ export class CoursesService {
         await this.userModel.findByIdAndUpdate(
             userId,
             { $inc: { xp: updateThemeProgressDto.xp } },
+            { $set: { gameXpUpdatedAt: new Date().toISOString() } },
         );
 
         return this.getUserCourses(userId);
     }
+
+    async updateGameRecord(userId: string, newGameXp: number) {
+    const user = await this.userModel.findById(new Types.ObjectId(userId));
+    
+    if (!user) {
+      throw new NotFoundException('Пользователь не найден');
+    }
+
+    if (newGameXp > user.gameXp) {
+      user.gameXp = newGameXp;
+      user.gameXpUpdatedAt = new Date().toISOString();
+      await user.save();
+      
+      return {
+        success: true,
+        message: 'Рекорд обновлен',
+        gameXp: user.gameXp,
+        updatedAt: user.gameXpUpdatedAt
+      };
+    }
+
+    return {
+      success: false,
+      message: 'Текущий рекорд выше полученного',
+      currentGameXp: user.gameXp
+    };
+  }
 }

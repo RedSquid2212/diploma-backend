@@ -2,6 +2,7 @@ import {
     Body,
   Controller,
   Get,
+  HttpCode,
   Param,
   Put,
   UseGuards,
@@ -11,6 +12,7 @@ import {
 import { CoursesService } from './courses.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { UpdateThemeProgressDto } from './dto/updateThemeProgressDto';
+import { UpdateGameProgressDto } from './dto/updateGameXp.dto';
 
 @Controller('progress')
 export class CoursesController {
@@ -33,6 +35,18 @@ export class CoursesController {
     return this.coursesService.updateThemeProgress(
       userId,
       updateProgressDto,
+    );
+  }
+
+  @Put(':userId/game')
+  @HttpCode(200)
+  updateGameRecord(
+    @Param('userId') userId: string,
+    @Body() updateGameRecordDto: UpdateGameProgressDto,
+  ) {
+    return this.coursesService.updateGameRecord(
+      userId,
+      updateGameRecordDto.gameXp
     );
   }
 }
