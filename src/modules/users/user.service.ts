@@ -90,6 +90,12 @@ export class UsersService {
       sameSite: 'lax',
     });
 
-    return { user };
+    return {
+      id: user.id,
+      xp: user.xp,
+      gameXp: user.gameXp,
+      achievements: user.achievements,
+      username: user.username,
+    };
   }
 }

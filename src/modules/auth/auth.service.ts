@@ -4,6 +4,7 @@ import { UsersService } from '../users/user.service';
 import { createSHA256 } from 'src/utils/hash';
 import { LoginUserDto } from '../users/dto/user.login.dto';
 import { Response } from 'express';
+import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,12 @@ export class AuthService {
 
   public async login(loginUserDto: LoginUserDto, res: Response) {
     const user = await this.usersService.findOne(loginUserDto.username);
-    const token = this.jwtService.sign({ username: user?.username });
+
+    if (!user) {
+      throw new NotFoundError('Пользователь не найден');
+    }
+
+    const token = this.jwtService.sign({ username: user.username });
     res.cookie('accessToken', token, {
       httpOnly: true,
       maxAge: 24 * 24 * 60 * 60 * 1000,
@@ -22,8 +28,13 @@ export class AuthService {
       domain: 'localhost',
       sameSite: 'lax',
     });
+
     return {
-      username: user?.username,
+      id: user.id,
+      xp: user.xp,
+      gameXp: user.gameXp,
+      achievements: user.achievements,
+      username: user.username,
     };
   }
 

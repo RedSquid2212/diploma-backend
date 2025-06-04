@@ -51,7 +51,7 @@ export class CoursesService {
             { $set: { progress: newThemeProgress } },
         );
 
-        const allThemes = await this.themeModel.find({courseId});
+        const allThemes = await this.themeModel.find({ courseId });
 
         const newCourseProgress = allThemes.reduce(
             (sum, t) => sum + t.progress, 0
@@ -72,29 +72,30 @@ export class CoursesService {
     }
 
     async updateGameRecord(userId: string, newGameXp: number) {
-    const user = await this.userModel.findById(new Types.ObjectId(userId));
-    
-    if (!user) {
-      throw new NotFoundException('Пользователь не найден');
-    }
+        const user = await this.userModel.findById(new Types.ObjectId(userId));
 
-    if (newGameXp > user.gameXp) {
-      user.gameXp = newGameXp;
-      user.gameXpUpdatedAt = new Date().toISOString();
-      await user.save();
-      
-      return {
-        success: true,
-        message: 'Рекорд обновлен',
-        gameXp: user.gameXp,
-        updatedAt: user.gameXpUpdatedAt
-      };
-    }
+        if (!user) {
+            throw new NotFoundException('Пользователь не найден');
+        }
 
-    return {
-      success: false,
-      message: 'Текущий рекорд выше полученного',
-      currentGameXp: user.gameXp
-    };
-  }
+        if (newGameXp > user.gameXp) {
+            user.gameXp = newGameXp;
+            user.gameXpUpdatedAt = new Date().toISOString();
+            await user.save();
+
+            return {
+                id: user.id,
+                xp: user.xp,
+                gameXp: user.gameXp,
+                achievements: user.achievements,
+                username: user.username,
+            };
+        }
+
+        return {
+            success: false,
+            message: 'Текущий рекорд выше полученного',
+            currentGameXp: user.gameXp
+        };
+    }
 }
