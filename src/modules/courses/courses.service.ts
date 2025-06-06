@@ -16,8 +16,30 @@ export class CoursesService {
         @InjectModel(Task.name) private taskModel: Model<Task>,
     ) { }
 
+    private async getThemes(courseId: string) {
+        return await this.themeModel.find({ courseId: new Types.ObjectId(courseId) });
+    }
+
     async getUserCourses(userId: string) {
-        return this.courseModel.find({ userId: new Types.ObjectId(userId) });
+        const courses = await this.courseModel.find({ userId: new Types.ObjectId(userId) }).exec();
+        const themes = await Promise.all(
+            courses.map(async (course) => {
+                const themes = await this.themeModel.find({ courseId: new Types.ObjectId(course.id as string) }).exec();
+                return { ...course.toObject(), themes };
+            })
+        );
+        const result = await Promise.all(
+            themes.map(async (course) => {
+                const themesWithTasks = await Promise.all(
+                    course.themes.map(async (theme) => {
+                        const tasks = await this.taskModel.find({ themeId: new Types.ObjectId(theme.id as string) }).exec();
+                        return { ...theme.toObject(), tasks };
+                    })
+                );
+                return { ...course, themes: themesWithTasks };
+            })
+        );
+        return result;
     }
 
     async updateThemeProgress(userId: string, updateThemeProgressDto: UpdateThemeProgressDto) {
