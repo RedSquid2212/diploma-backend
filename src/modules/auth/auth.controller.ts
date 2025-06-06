@@ -7,14 +7,17 @@ import {
   ValidationPipe,
   HttpCode,
   Res,
+  Get,
+  Req,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '../users/dto/user.login.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CreateUserDto } from '../users/dto/user.create.dto';
 import { UsersService } from '../users/user.service';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -47,5 +50,17 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response,
   ) {
     return this.authService.login(loginUserDto, res);
+  }
+
+  @ApiOperation({ summary: 'Check auth' })
+  @ApiResponse({ status: 200, description: 'User is authenticated' })
+  @ApiResponse({ status: 401, description: 'Token is invalid or was not sent' })
+  @Get('check')
+  @UseGuards(JwtAuthGuard)
+  checkAuth(@Req() request: Request) {
+    return {
+      isAuthenticated: true,
+      user: request.user,
+    };
   }
 }
