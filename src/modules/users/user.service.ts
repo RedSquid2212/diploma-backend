@@ -27,11 +27,11 @@ export class UsersService {
     private readonly jwtService: JwtService,
   ) { }
 
-  async findOne(username: string) {
+  public async findOne(username: string) {
     return await this.userModel.findOne({ username }).exec();
   }
 
-  async create(userDto: CreateUserDto, res: Response) {
+  public async create(userDto: CreateUserDto, res: Response) {
     const { username, password } = userDto;
 
     const userInDb = await this.userModel.findOne({ username }).exec();

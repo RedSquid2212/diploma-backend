@@ -9,6 +9,7 @@ import {
   Res,
   Get,
   Req,
+  Param,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '../users/dto/user.login.dto';
@@ -57,10 +58,22 @@ export class AuthController {
   @ApiResponse({ status: 401, description: 'Token is invalid or was not sent' })
   @Get('check')
   @UseGuards(JwtAuthGuard)
-  checkAuth(@Req() request: Request) {
+  public checkAuth(@Req() request: Request) {
     return {
       isAuthenticated: true,
       user: request.user,
     };
+  }
+
+  @ApiOperation({ summary: 'Get current user' })
+  @ApiResponse({ status: 200, description: 'Current user data' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @Get(':username')
+  @UseGuards(JwtAuthGuard)
+  public async getCurrentUser(
+    @Param('username') username: string,
+  ) {
+    const formattedUsername = decodeURIComponent(username);
+    return await this.usersService.findOne(formattedUsername);
   }
 }

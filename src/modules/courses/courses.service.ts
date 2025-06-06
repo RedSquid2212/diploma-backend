@@ -16,10 +16,6 @@ export class CoursesService {
         @InjectModel(Task.name) private taskModel: Model<Task>,
     ) { }
 
-    private async getThemes(courseId: string) {
-        return await this.themeModel.find({ courseId: new Types.ObjectId(courseId) });
-    }
-
     async getUserCourses(userId: string) {
         const courses = await this.courseModel.find({ userId: new Types.ObjectId(userId) }).exec();
         const themes = await Promise.all(
