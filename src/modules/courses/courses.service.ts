@@ -41,6 +41,7 @@ export class CoursesService {
     async updateThemeProgress(userId: string, updateThemeProgressDto: UpdateThemeProgressDto) {
         const courseId = new Types.ObjectId(updateThemeProgressDto.courseId);
         const themeId = new Types.ObjectId(updateThemeProgressDto.themeId);
+        const taskId = new Types.ObjectId(updateThemeProgressDto.taskId);
 
         const course = await this.courseModel.findOne({
             _id: courseId,
@@ -59,6 +60,11 @@ export class CoursesService {
         if (!theme) {
             throw new NotFoundException('Тема не найдена в данном курсе');
         }
+
+        await this.taskModel.updateOne(
+            { _id: taskId },
+            { $set: { isSolved: true }},
+        );
 
         const tasksInTheme = (await this.taskModel.find({ themeId })).length;
         const themeProgressIncrement = (1 / tasksInTheme) * 100;

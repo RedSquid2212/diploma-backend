@@ -19,6 +19,14 @@ export class UpdateThemeProgressDto {
   themeId: string;
 
   @ApiProperty({
+    example: 'some Mongo ID',
+    description: 'Task ID from MongoDB',
+    required: true,
+  })
+  @IsMongoId()
+  taskId: string;
+
+  @ApiProperty({
     example: 10,
     description: 'Value of received xp',
     required: true,

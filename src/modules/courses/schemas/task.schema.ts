@@ -19,6 +19,9 @@ export class Task extends Document {
     @Prop({ required: true })
     xp: number;
 
+    @Prop({ required: true })
+    isSolved: boolean;
+
     @Prop()
     placeholderCode?: string;
 

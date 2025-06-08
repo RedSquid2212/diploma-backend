@@ -12,6 +12,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -19,7 +20,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Типы данных и переменные': [
@@ -35,6 +37,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -42,7 +45,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Операторы': [
@@ -58,6 +62,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -65,7 +70,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Условные конструкции': [
@@ -81,6 +87,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -88,7 +95,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Циклы': [
@@ -104,6 +112,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -111,7 +120,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Функции': [
@@ -127,6 +137,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -134,7 +145,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Массивы': [
@@ -150,6 +162,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -157,7 +170,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Объекты': [
@@ -173,6 +187,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -180,7 +195,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Работа с датами': [
@@ -196,6 +212,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -203,7 +220,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Область видимости (Scope)': [
@@ -219,6 +237,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -226,7 +245,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Контекст выполнения (this)': [
@@ -242,6 +262,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -249,7 +270,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Классы и ООП': [
@@ -265,6 +287,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -272,7 +295,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Асинхронность': [
@@ -288,6 +312,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -295,7 +320,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Работа с DOM': [
@@ -311,6 +337,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -318,7 +345,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Хранение данных': [
@@ -334,6 +362,7 @@ export const taskMap = {
                 { input: [1, 3, 5, 7], expected: []},
                 { input: [2, 4, 6, 8], expected: [2, 4, 6, 8]},
             ],
+            isSolved: false,
         },
         {
             title: 'Методы массивов',
@@ -341,7 +370,8 @@ export const taskMap = {
             text: 'Какой метод массива НЕ изменяет исходный массив?',
             xp: 50,
             variants: ['push()', 'splice()', 'slice()', 'sort()'],
-            answer: 'slice()'
+            answer: 'slice()',
+            isSolved: false,
         }
     ],
     'Основы CSS': [
@@ -350,7 +380,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -359,6 +390,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'Работа с текстом и шрифтами': [
@@ -367,7 +399,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -376,6 +409,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'Блочная модель (Box Model)': [
@@ -384,7 +418,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -393,6 +428,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'Позиционирование и Flexbox': [
@@ -401,7 +437,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -410,6 +447,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'Grid Layout': [
@@ -418,7 +456,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -427,6 +466,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'Анимации и трансформации': [
@@ -435,7 +475,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -444,6 +485,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'Адаптивный дизайн': [
@@ -452,7 +494,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -461,6 +504,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'CSS Custom Properties': [
@@ -469,7 +513,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайте элементы блочными, задав необходимые стили.`,
             xp: 50,
-            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`
+            placeholderCode: `<span class="element"></span>\n<span class="element"></span>`,
+            isSolved: false,
         },
         {
             title: 'Не совсем скрытие',
@@ -478,6 +523,7 @@ export const taskMap = {
             xp: 50,
             variants: ['display: none', 'visibility: hidden', 'opacity: 0', 'width: 0'],
             answer: 'visibility: hidden',
+            isSolved: false,
         }
     ],
     'Основы HTML': [
@@ -486,7 +532,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -495,6 +542,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
     'Семантическая разметка': [
@@ -503,7 +551,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -512,6 +561,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
     'Формы и интерактивные элементы': [
@@ -520,7 +570,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -529,6 +580,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
     'Мультимедиа': [
@@ -537,7 +589,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -546,6 +599,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
     'Таблицы': [
@@ -554,7 +608,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -563,6 +618,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
     'Доступность (a11y)': [
@@ -571,7 +627,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -580,6 +637,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
     'Интеграция с API браузера': [
@@ -588,7 +646,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -597,6 +656,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
     'Современные API': [
@@ -605,7 +665,8 @@ export const taskMap = {
             type: 'code',
             text: `Сделайтете input для пароля.`,
             xp: 50,
-            placeholderCode: `// место для вашего кода`
+            placeholderCode: `// место для вашего кода`,
+            isSolved: false,
         },
         {
             title: 'Важный текст',
@@ -614,6 +675,7 @@ export const taskMap = {
             xp: 50,
             variants: ['<b>', '<strong>', '<i>', '<em>'],
             answer: '<strong>',
+            isSolved: false,
         },
     ],
 };
