@@ -48,6 +48,7 @@ export class UsersService {
       xp: 0,
       xpUpdatedAt: new Date().toISOString(),
       gameXp: 0,
+      level: 1,
       gameXpUpdatedAt: new Date().toISOString(),
       achievements: [],
     });

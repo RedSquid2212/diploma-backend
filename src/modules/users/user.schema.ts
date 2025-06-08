@@ -22,6 +22,9 @@ export class User extends Document {
   gameXpUpdatedAt: string;
 
   @Prop({ required: true })
+  level: number;
+
+  @Prop({ required: true })
   achievements: string[];
 }
 

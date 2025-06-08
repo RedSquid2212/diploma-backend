@@ -6,6 +6,8 @@ import { UpdateThemeProgressDto } from './dto/updateThemeProgress.dto';
 import { User } from '../users/user.schema';
 import { Theme } from './schemas/theme.schema';
 import { Task } from './schemas/task.schema';
+import { levelMapper } from './utils/levelMapper';
+import { Achievements } from './types/achievement.enum';
 
 @Injectable()
 export class CoursesService {
@@ -63,7 +65,7 @@ export class CoursesService {
 
         await this.taskModel.updateOne(
             { _id: taskId },
-            { $set: { isSolved: true }},
+            { $set: { isSolved: true } },
         );
 
         const tasksInTheme = (await this.taskModel.find({ themeId })).length;
@@ -91,6 +93,60 @@ export class CoursesService {
             { $inc: { xp: updateThemeProgressDto.xp } },
             { $set: { gameXpUpdatedAt: new Date().toISOString() } },
         );
+
+        const user = await this.userModel.findById(userId);
+        if (!user) throw new NotFoundException('Пользователь не найден');
+
+        const courses = await this.courseModel.find({ userId });
+        const jsCourse = courses.find(item => item.title === 'JS');
+        const cssCourse = courses.find(item => item.title === 'CSS');
+        const htmlCourse = courses.find(item => item.title === 'HTML');
+
+        const achievements = new Set(user.achievements ?? []);
+
+        if (user.xp === updateThemeProgressDto.xp && user.xp > 0) {
+            achievements.add(Achievements.Newbie);
+        }
+
+        const levelThreshold = levelMapper[user.level ?? 1];
+        if (user.xp >= levelThreshold) {
+            const newLevel = (user.level ?? 1) + 1;
+            await this.userModel.updateOne(
+                { _id: userId },
+                { $set: { level: newLevel } }
+            );
+
+            if (newLevel >= 3) {
+                achievements.add(Achievements.Experienced);
+            }
+
+            if (newLevel >= 5) {
+                achievements.add(Achievements.Pro);
+            }
+        }
+
+        if ((jsCourse?.progress ?? 0) >= 100 && (cssCourse?.progress ?? 0) >= 100 && (htmlCourse?.progress ?? 0) >= 100) {
+            achievements.add(Achievements.Internship);
+        }
+
+        if ((jsCourse?.progress ?? 0) >= 100) {
+            achievements.add(Achievements.JsMaster);
+        }
+
+        if ((cssCourse?.progress ?? 0) >= 100) {
+            achievements.add(Achievements.CssMaster);
+        }
+
+        if ((htmlCourse?.progress ?? 0) >= 100) {
+            achievements.add(Achievements.HtmlMaster);
+        }
+        
+        if (achievements.size > (user.achievements?.length ?? 0)) {
+            await this.userModel.updateOne(
+                { _id: userId },
+                { $set: { achievements: Array.from(achievements) } }
+            );
+        }
 
         return this.getUserCourses(userId);
     }
