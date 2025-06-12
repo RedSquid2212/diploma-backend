@@ -11,7 +11,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGO_URI ?? '', {
-      tlsCAFile: 'C:\\Users\\Angelina\\.mongodb\\root.crt',
+      tlsCAFile: process.env.MONGO_CERT_PATH ?? '',
       tls: true,
       replicaSet: 'rs01',
       authSource: 'admin',
