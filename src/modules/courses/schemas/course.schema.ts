@@ -3,7 +3,7 @@ import { Document, Types } from 'mongoose';
 
 @Schema({ collection: 'courses', timestamps: true })
 export class Course extends Document {
-  @Prop({ required: true, unique: true, ref: 'User' })
+  @Prop({ required: true, ref: 'User' })
   userId: Types.ObjectId;
 
   @Prop({ required: true})
